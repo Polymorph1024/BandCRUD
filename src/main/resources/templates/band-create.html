@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Band</title>
+</head>
+<body>
+<form action="#" th:action="@{band-create}" th:object="${band}" method="post">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <label for="label">Label</label>
+    <input type="text" th:field="*{label}" id="label" placeholder="Label">
+    <label for="genre">Genre</label>
+    <input type="text" th:field="*{genre}" id="genre" placeholder="Genre">
+    <label for="foundationYear">Foundation Year</label>
+    <input type="text" th:field="*{foundationYear}" id="foundationYear" placeholder="Foundation Year">
+
+    <input type="submit" value="Create Band">
+</form>
+</body>
+</html>

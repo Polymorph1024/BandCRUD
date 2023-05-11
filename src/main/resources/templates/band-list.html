@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Bands</title>
+</head>
+<body>
+<div th:switch="${bands}">
+    <h2 th:case="null">No bands found!</h2>
+    <div th:case="*">
+        <h2>Bands</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Label</th>
+                <th>Genre</th>
+                <th>Foundation Year</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="band : ${bands}">
+                <td th:text="${band.id}"></td>
+                <td th:text="${band.name}"></td>
+                <td th:text="${band.label}"></td>
+                <td th:text="${band.genre}"></td>
+                <td th:text="${band.foundationYear}"></td>
+                <td><a th:href="@{band-update/{id}(id=${band.id})}">Edit</a></td>
+                <td><a th:href="@{band-delete/{id}(id=${band.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/band-create">Create Band</a></p>
+</div>
+</body>
+</html>
